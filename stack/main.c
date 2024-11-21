@@ -1,8 +1,6 @@
-#include "generator.h"
+#include "../utils/utils.h"
 #include "stack.h"
 #include <stdio.h>
-
-void printer_fn(void *element) { printf("%d", (*(int *)element)); }
 
 int main(void) {
   Stack *stack = stack_alloc(10);
@@ -12,7 +10,7 @@ int main(void) {
   stack_push(stack, generate_int_ptr(30));
   stack_push(stack, generate_int_ptr(40));
 
-  stack_print(stack, printer_fn);
+  stack_print(stack, print_int);
 
   int popped_value, idx;
 
